@@ -12,12 +12,23 @@ from datetime import date
 
 # ---------------- Impostazioni da completare ----------------
 SITE_URL = ""            # es. "https://sgdp.it" (serve per le anteprime dei link sui social)
-EMAIL = "[EMAIL]"        # email della redazione
+EMAIL = "redazione.sgdp@gmail.com"  # email della redazione
 TITOLARE = "Ionut Gaucan"
 VERSIONE_PRIVACY = "1.0 – 11 novembre 2026"
 # ------------------------------------------------------------
 
 QUI = os.path.dirname(os.path.abspath(__file__))
+ASSET = ["style.css", "sito.js", "favicon.svg", "condivisione.png", "inter-latin-400-normal.woff2", "inter-latin-600-normal.woff2", "inter-latin-800-normal.woff2"]
+import time
+VERSIONE = str(int(time.time()))  # forza il browser a caricare i file aggiornati
+SOCIAL = [
+    ("Telegram", "https://t.me/SenzaGiriDiParole"),
+    ("WhatsApp", "https://whatsapp.com/channel/0029VbET1P084Om58ja6zZ1t"),
+    ("Instagram", "https://www.instagram.com/sgdpsenzagiridiparole/"),
+    ("Facebook", "https://www.facebook.com/profile.php?id=61596050924338"),
+    ("LinkedIn", "https://www.linkedin.com/company/sgdp-senza-giri-di-parole/"),
+    ("X", "https://x.com/SGDParole"),
+]
 CATEGORIE = {
     "italia": ("Italia", "Politica, governo, leggi e fatti che riguardano il Paese."),
     "mondo": ("Mondo", "Esteri, crisi internazionali e organizzazioni globali."),
@@ -52,13 +63,13 @@ def testa(titolo, descrizione, r, percorso, anteprima_index=False, og_tipo="webs
           '<meta name="twitter:card" content="summary_large_image">']
     if SITE_URL:
         og += [f'<meta property="og:url" content="{e(url)}">',
-               f'<meta property="og:image" content="{e(SITE_URL.rstrip("/"))}/assets/condivisione.png">',
+               f'<meta property="og:image" content="{e(SITE_URL.rstrip("/"))}/condivisione.png">',
                f'<link rel="canonical" href="{e(url)}">']
     righe = [f"<title>{e(titolo)}</title>",
              f'<meta name="description" content="{e(descrizione)}">',
              *og,
-             f'<link rel="icon" href="{r}assets/favicon.svg" type="image/svg+xml">',
-             f'<link rel="stylesheet" href="{r}assets/style.css">']
+             f'<link rel="icon" href="{r}favicon.svg" type="image/svg+xml">',
+             f'<link rel="stylesheet" href="{r}style.css?v={VERSIONE}">']
     if anteprima_index:
         righe.insert(1, '<meta name="claude:viewport-fit-sides" content="cover">')
         return "\n".join(righe) + "\n"
@@ -88,6 +99,7 @@ def testata(r, attiva=None):
 
 def piede(r, anteprima_index=False):
     sezioni = "".join(f'<li><a href="{r}{k}.html">{n}</a></li>' for k, (n, _) in CATEGORIE.items())
+    social = "".join(f'<li><a href="{u}" target="_blank" rel="noopener">{n}</a></li>' for n, u in SOCIAL)
     chiusura = "" if anteprima_index else "</body>\n</html>\n"
     return f'''<footer class="piede">
   <div class="gutter"><div class="contenitore piede-interno">
@@ -95,6 +107,7 @@ def piede(r, anteprima_index=False):
     <div><h2>Sezioni</h2><ul>{sezioni}</ul></div>
     <div><h2>SGDP</h2><ul><li><a href="{r}newsletter.html">Newsletter</a></li><li><a href="{r}come-lavoriamo.html">Come lavoriamo</a></li><li><a href="{r}correzioni.html">Correzioni</a></li><li><a href="{r}contatti.html">Contatti</a></li></ul></div>
     <div><h2>Note legali</h2><ul><li><a href="{r}privacy.html">Informativa privacy</a></li><li><a href="{r}cookie.html">Cookie e memoria locale</a></li></ul></div>
+    <div><h2>Seguici</h2><ul>{social}</ul></div>
   </div></div>
   <div class="gutter"><div class="contenitore piede-legale">
     <span>© 2026 SGDP – Senza giri di parole</span>
@@ -103,7 +116,7 @@ def piede(r, anteprima_index=False):
     <span>Testi redatti con AI e verificati dalla redazione</span>
   </div></div>
 </footer>
-<script src="{r}assets/sito.js"></script>
+<script src="{r}sito.js?v={VERSIONE}"></script>
 {chiusura}'''
 
 
@@ -121,7 +134,7 @@ def modulo(p, r, cta="Iscriviti gratis"):
     <strong>Ultimo passo: conferma l'iscrizione su Substack.</strong>
     <span>Si apre la pagina di iscrizione di Substack, la piattaforma che invia la nostra newsletter. Se l'email non è già compilata, inserisci la stessa. Poi conferma dal link che ricevi.</span>
     <a class="bottone vai-substack" href="#" target="_blank" rel="noopener" hidden>Conferma su Substack</a>
-    <span class="avviso-config" hidden>Anteprima del sito: il collegamento a Substack non è ancora configurato, quindi l'iscrizione non è stata registrata. L'articolo è stato sbloccato solo per la prova.</span>
+    <span class="avviso-config" hidden>Modalità di prova: il sito non è ancora collegato a Substack, quindi questa iscrizione non è stata registrata.</span>
   </div>
   <p class="nota">Raccogliamo solo la tua email, gestita da Substack per l'invio. Niente spam e nessuna cessione a terzi. <a href="{r}privacy.html">Leggi l'informativa</a>.</p>
 </form>'''
@@ -148,7 +161,7 @@ def voce_elenco(a, r, cartella=""):
   <p class="quando"><b>{data_it(a["data"])}</b>{"Mattino" if a["edizione"] == "mattino" else "Sera"}</p>
   <div class="testo">
     <div class="meta">{etichetta(a["categoria"], r)}{esempio}</div>
-    <h3><a href="{r}articoli/{a["slug"]}.html">{e(a["titolo"])}</a></h3>
+    <h3><a href="{r}{a["slug"]}.html">{e(a["titolo"])}</a></h3>
     <p>{e(a["sommario"])}</p>
   </div>
 </article>'''
@@ -168,7 +181,7 @@ def pagina_home(articoli, anteprima=False):
     r = ""
     prima, *resto = articoli
     laterali, altri = resto[:2], resto[2:]
-    lat = "".join(f'''<article class="cat-{a["categoria"]}"><div class="meta">{etichetta(a["categoria"], r)}</div><h3><a href="articoli/{a["slug"]}.html">{e(a["titolo"])}</a></h3>{riga_meta(a)}</article>''' for a in laterali)
+    lat = "".join(f'''<article class="cat-{a["categoria"]}"><div class="meta">{etichetta(a["categoria"], r)}</div><h3><a href="{a["slug"]}.html">{e(a["titolo"])}</a></h3>{riga_meta(a)}</article>''' for a in laterali)
     esempio = '<span class="esempio">Articolo di esempio</span>' if prima.get("esempio") else ""
     corpo = f'''{testata(r)}
 <main id="contenuto">
@@ -177,7 +190,7 @@ def pagina_home(articoli, anteprima=False):
     <div class="apertura">
       <article class="apertura-principale cat-{prima["categoria"]}">
         <div class="meta">{etichetta(prima["categoria"], r)}{esempio}</div>
-        <h2><a href="articoli/{prima["slug"]}.html">{e(prima["titolo"])}</a></h2>
+        <h2><a href="{prima["slug"]}.html">{e(prima["titolo"])}</a></h2>
         <p class="sommario">{e(prima["sommario"])}</p>
         {riga_meta(prima)}
       </article>
@@ -218,12 +231,12 @@ def pagina_sezione(cat, articoli):
 
 
 def pagina_articolo(a, articoli):
-    r = "../"
+    r = ""
     paragrafi = "\n".join(f"<p>{e(p)}</p>" for p in a["corpo"])
     fonti = "".join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(n)}</a></li>' for n, u in a["fonti"])
     esempio = '<span class="esempio">Articolo di esempio</span>' if a.get("esempio") else ""
     altri = [x for x in articoli if x["slug"] != a["slug"]][:3]
-    return testa(f'{a["titolo"]} · SGDP', a["sommario"], r, f'articoli/{a["slug"]}.html', og_tipo="article") + f'''{testata(r, a["categoria"])}
+    return testa(f'{a["titolo"]} · SGDP', a["sommario"], r, f'{a["slug"]}.html', og_tipo="article") + f'''{testata(r, a["categoria"])}
 <main id="contenuto">
   <div class="gutter">
   <article class="articolo cat-{a["categoria"]}">
@@ -248,7 +261,7 @@ def pagina_articolo(a, articoli):
       <h2 id="fonti-titolo" class="titolo-sezione">Fonti</h2>
       <ol>{fonti}</ol>
     </section>
-    <p class="trasparenza">Testo redatto con AI e verificato dalla redazione di SGDP. Hai trovato un errore? Scrivi a {e(EMAIL)}. Leggi <a href="../come-lavoriamo.html">come lavoriamo</a> e le <a href="../correzioni.html">correzioni</a>.</p>
+    <p class="trasparenza">Testo redatto con AI e verificato dalla redazione di SGDP. Hai trovato un errore? Scrivi a {e(EMAIL)}. Leggi <a href="come-lavoriamo.html">come lavoriamo</a> e le <a href="correzioni.html">correzioni</a>.</p>
   </article>
   <section class="dopo" aria-labelledby="altri-titolo">
     <h2 id="altri-titolo" class="titolo-sezione">Altri articoli</h2>
@@ -446,7 +459,7 @@ def costruisci(base, anteprima=False):
     for k in CATEGORIE:
         scrivi(base, f"{k}.html", pagina_sezione(k, articoli))
     for a in articoli:
-        scrivi(base, f"articoli/{a['slug']}.html", pagina_articolo(a, articoli))
+        scrivi(base, f"{a['slug']}.html", pagina_articolo(a, articoli))
     scrivi(base, "newsletter.html", pagina_newsletter())
     scrivi(base, "come-lavoriamo.html", pagina_come_lavoriamo())
     scrivi(base, "correzioni.html", pagina_correzioni())
@@ -461,7 +474,9 @@ if __name__ == "__main__":
         dest = os.path.abspath(sys.argv[2])
         if os.path.exists(dest):
             shutil.rmtree(dest)
-        shutil.copytree(os.path.join(QUI, "assets"), os.path.join(dest, "assets"))
+        os.makedirs(dest)
+        for f in ASSET:
+            shutil.copy(os.path.join(QUI, f), dest)
         n = costruisci(dest, anteprima=True)
     else:
         n = costruisci(QUI)
