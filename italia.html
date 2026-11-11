@@ -13,7 +13,7 @@
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=1794403578">
+<link rel="stylesheet" href="style.css?v=1794407627">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto</a>
@@ -40,14 +40,14 @@
   <section class="banda" aria-labelledby="sez-titolo">
   <div class="gutter"><div class="contenitore banda-interno">
     <div><h2 id="sez-titolo">Leggi gli articoli completi. Gratis.</h2><p>Con l'iscrizione alla newsletter sblocchi tutti gli articoli del sito e ricevi ogni domenica “La settimana in 200 parole”.</p></div>
-    <div class="modulo-substack">
-  <div class="consenso-substack">
-    <p>Il modulo di iscrizione è di Substack, la piattaforma che invia la nostra newsletter. Substack salva un cookie di statistica: per mostrare il modulo serve il tuo consenso.</p>
-    <button class="bottone" type="button" data-mostra-substack>Accetta e iscriviti</button>
-  </div>
-  <div class="cornice-substack" hidden></div>
-  <p class="nota">Iscrivendoti accetti di ricevere la newsletter di SGDP e confermi di avere almeno 14 anni. <a href="privacy.html">Informativa privacy</a> · <a href="cookie.html">Cookie</a>.</p>
-</div>
+    <form class="modulo" novalidate data-modulo>
+  <div class="riga-campo"><label class="etichetta-campo" for="sez-email">La tua email</label>
+    <input type="email" id="sez-email" name="email" autocomplete="email" placeholder="La tua email" required>
+    <button class="bottone" type="submit">Iscriviti gratis</button></div>
+  <p class="errore" role="alert" hidden></p>
+  <p class="passo2" role="status" hidden><strong>Fatto, sei iscritto.</strong> Grazie!</p>
+  <p class="nota">Cliccando “Iscriviti gratis” accetti di ricevere la newsletter di SGDP e confermi di avere almeno 14 anni. <a href="privacy.html">Informativa privacy</a>.</p>
+</form>
   </div></div>
 </section>
 </main>
@@ -66,6 +66,6 @@
     <span>Testi redatti con AI e verificati dalla redazione</span>
   </div></div>
 </footer>
-<script src="sito.js?v=1794403578"></script>
+<script src="sito.js?v=1794407627"></script>
 </body>
 </html>

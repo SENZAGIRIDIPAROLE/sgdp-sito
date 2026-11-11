@@ -1,16 +1,14 @@
 /* SGDP – script del sito
-   Unica cosa da configurare: l'indirizzo della pubblicazione Substack. */
+   Le email vanno direttamente a MailerLite (modulo "Sito SGDP", gruppo "Iscritti sito"). */
 var SGDP_CONFIG = {
-  SUBSTACK_URL: "https://senzagiridiparolesgdp.substack.com" // indirizzo della pubblicazione Substack (senza barra finale)
+  ISCRIZIONE_URL: "https://assets.mailerlite.com/jsonp/2787607/forms/203851020340561521/subscribe"
 };
 
 (function () {
   var CHIAVE_SBLOCCO = "sgdp_iscritto";
-  var CHIAVE_CONSENSO = "sgdp_consenso_substack";
 
   function leggi(k) { try { return window.localStorage.getItem(k) === "1"; } catch (e) { return false; } }
   function salva(k) { try { window.localStorage.setItem(k, "1"); } catch (e) { /* solo per questa visita */ } }
-  function togli(k) { try { window.localStorage.removeItem(k); } catch (e) { /* niente da togliere */ } }
 
   function sblocca() {
     var corpo = document.querySelector(".corpo.bloccato");
@@ -23,44 +21,51 @@ var SGDP_CONFIG = {
     if (muro) muro.hidden = true;
   }
 
-  // Modulo ufficiale di Substack: si carica solo dopo il consenso, perché Substack salva un cookie di statistica.
-  var base = (SGDP_CONFIG.SUBSTACK_URL || "").replace(/\/+$/, "");
-  var consensoInSessione = false;
-  function mostraModuli() {
-    document.querySelectorAll(".modulo-substack").forEach(function (box) {
-      var cornice = box.querySelector(".cornice-substack");
-      if (!cornice.querySelector("iframe")) {
-        var f = document.createElement("iframe");
-        f.src = base + "/embed";
-        f.title = "Iscrizione alla newsletter di SGDP";
-        f.setAttribute("frameborder", "0");
-        f.setAttribute("scrolling", "no");
-        cornice.appendChild(f);
+  // Iscrizione: email + clic, senza uscire dal sito.
+  document.querySelectorAll("[data-modulo]").forEach(function (f) {
+    var campo = f.querySelector("input[type=email]");
+    var bottone = f.querySelector("button[type=submit]");
+    var errore = f.querySelector(".errore");
+    var ok = f.querySelector(".passo2");
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var email = (campo.value || "").trim();
+      errore.hidden = true;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+        errore.textContent = "Scrivi un indirizzo email valido.";
+        errore.hidden = false; campo.focus(); return;
       }
-      cornice.hidden = false;
-      box.querySelector(".consenso-substack").hidden = true;
+      bottone.disabled = true;
+      var dati = new URLSearchParams();
+      dati.append("fields[email]", email);
+      dati.append("ml-submit", "1");
+      dati.append("anticsrf", "true");
+      fetch(SGDP_CONFIG.ISCRIZIONE_URL, { method: "POST", body: dati })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j || j.success === false) throw new Error("rifiutata");
+          f.querySelector(".riga-campo").hidden = true;
+          ok.hidden = false;
+          salva(CHIAVE_SBLOCCO);
+          if (document.querySelector(".corpo.bloccato")) {
+            sblocca();
+            var esito = document.querySelector(".esito-articolo");
+            if (esito) esito.hidden = false;
+          }
+        })
+        .catch(function () {
+          errore.textContent = "Iscrizione non riuscita. Riprova tra poco.";
+          errore.hidden = false;
+          bottone.disabled = false;
+        });
     });
-  }
-  document.querySelectorAll("[data-mostra-substack]").forEach(function (b) {
-    b.addEventListener("click", function () { consensoInSessione = true; salva(CHIAVE_CONSENSO); mostraModuli(); });
   });
-  if (base && (leggi(CHIAVE_CONSENSO) || consensoInSessione)) mostraModuli();
 
   // Dopo l'iscrizione il lettore sblocca l'articolo con un clic.
   document.querySelectorAll("[data-sblocca]").forEach(function (b) {
     b.addEventListener("click", function () { salva(CHIAVE_SBLOCCO); sblocca(); });
   });
   if (leggi(CHIAVE_SBLOCCO)) sblocca();
-
-  // Pagina cookie: revoca del consenso.
-  var revoca = document.querySelector("[data-revoca]");
-  if (revoca) {
-    revoca.addEventListener("click", function () {
-      togli(CHIAVE_CONSENSO);
-      var esito = document.getElementById("esito-revoca");
-      if (esito) esito.textContent = "Consenso revocato: il modulo di Substack non verrà più caricato finché non lo accetti di nuovo.";
-    });
-  }
 
   // Pagina contatti: copia dell'indirizzo email.
   var copia = document.querySelector("[data-copia]");

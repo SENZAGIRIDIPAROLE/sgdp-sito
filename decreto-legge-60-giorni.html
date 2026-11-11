@@ -13,7 +13,7 @@
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=1794403578">
+<link rel="stylesheet" href="style.css?v=1794407627">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto</a>
@@ -32,7 +32,7 @@
     <h1>Decreto-legge: perché ha 60 giorni per diventare legge</h1>
     <p class="sommario">Il governo può adottare norme urgenti che valgono subito, ma il Parlamento deve convertirle in legge entro 60 giorni. Altrimenti decadono fin dall&#x27;inizio.</p>
     <p class="meta"><span>11 novembre 2026</span><span>Edizione del mattino</span><span>180 parole · 1 min</span><span>3 fonti</span></p>
-    <p class="esito-articolo trasparenza" role="status" hidden><strong>Iscrizione inviata.</strong> Controlla la tua email: se ti chiede di confermare, clicca il link. Buona lettura.</p>
+    <p class="esito-articolo trasparenza" role="status" hidden><strong>Fatto, sei iscritto.</strong> Buona lettura.</p>
     <div class="corpo bloccato" id="corpo" inert aria-hidden="true">
 <p>Il decreto-legge è previsto dall&#x27;articolo 77 della Costituzione. Il governo può adottarlo solo in casi straordinari di necessità e urgenza, e il decreto entra in vigore con la pubblicazione nella Gazzetta Ufficiale.</p>
 <p>Lo stesso giorno il decreto viene presentato alle Camere per la conversione in legge. Il Parlamento ha 60 giorni dalla pubblicazione per approvarlo, anche con modifiche.</p>
@@ -43,15 +43,15 @@
     <section class="muro" aria-labelledby="muro-titolo">
       <h2 id="muro-titolo">Continua a leggere gratis</h2>
       <p class="perche">L'articolo completo è riservato agli iscritti alla newsletter. L'iscrizione è gratuita e richiede un minuto.</p>
-      <div class="modulo-substack">
-  <div class="consenso-substack">
-    <p>Il modulo di iscrizione è di Substack, la piattaforma che invia la nostra newsletter. Substack salva un cookie di statistica: per mostrare il modulo serve il tuo consenso.</p>
-    <button class="bottone" type="button" data-mostra-substack>Accetta e iscriviti</button>
-  </div>
-  <div class="cornice-substack" hidden></div>
-  <p class="nota">Iscrivendoti accetti di ricevere la newsletter di SGDP e confermi di avere almeno 14 anni. <a href="privacy.html">Informativa privacy</a> · <a href="cookie.html">Cookie</a>.</p>
-</div>
-      <p class="gia">Ti sei appena iscritto o sei già iscritto? <button type="button" data-sblocca>Continua a leggere</button></p>
+      <form class="modulo" novalidate data-modulo>
+  <div class="riga-campo"><label class="etichetta-campo" for="art-email">La tua email</label>
+    <input type="email" id="art-email" name="email" autocomplete="email" placeholder="La tua email" required>
+    <button class="bottone" type="submit">Iscriviti e leggi</button></div>
+  <p class="errore" role="alert" hidden></p>
+  <p class="passo2" role="status" hidden><strong>Fatto, sei iscritto.</strong> Grazie!</p>
+  <p class="nota">Cliccando “Iscriviti e leggi” accetti di ricevere la newsletter di SGDP e confermi di avere almeno 14 anni. <a href="privacy.html">Informativa privacy</a>.</p>
+</form>
+      <p class="gia">Sei già iscritto? <button type="button" data-sblocca>Continua a leggere</button></p>
     </section>
     <section class="fonti" aria-labelledby="fonti-titolo">
       <h2 id="fonti-titolo" class="titolo-sezione">Fonti</h2>
@@ -101,6 +101,6 @@
     <span>Testi redatti con AI e verificati dalla redazione</span>
   </div></div>
 </footer>
-<script src="sito.js?v=1794403578"></script>
+<script src="sito.js?v=1794407627"></script>
 </body>
 </html>
