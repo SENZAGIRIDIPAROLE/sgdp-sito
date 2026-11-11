@@ -205,3 +205,5 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
 
 .banda .bottone { background: var(--nero); color: var(--giallo); }
+.giorno { padding: 20px 0 8px; display: grid; gap: 12px; }
+.giorno img { display: block; width: 100%; max-width: 560px; height: auto; border: 4px solid var(--nero); }

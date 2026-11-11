@@ -67,6 +67,14 @@ var SGDP_CONFIG = {
   });
   if (leggi(CHIAVE_SBLOCCO)) sblocca();
 
+  // Homepage: la notizia del giorno (file notizia-del-giorno.jpg, sostituito ogni giorno su GitHub).
+  var giorno = document.querySelector("[data-giorno]");
+  if (giorno) {
+    var img = giorno.querySelector("img");
+    img.onload = function () { giorno.hidden = false; };
+    img.src = "notizia-del-giorno.jpg?t=" + Math.floor(Date.now() / 300000);
+  }
+
   // Pagina contatti: copia dell'indirizzo email.
   var copia = document.querySelector("[data-copia]");
   if (copia) {
