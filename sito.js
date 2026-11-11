@@ -61,12 +61,18 @@ var SGDP_CONFIG = {
       if (!base) { mostraEsito(false); return; }
       bottone.disabled = true;
       bottone.textContent = "Invio…";
-      var dati = "email=" + encodeURIComponent(email) + "&source=embed&first_url=" + encodeURIComponent(location.href);
-      fetch(base + "/api/v1/free?nojs=true", {
+      // Stesso formato del modulo ufficiale di Substack (JSON inviato come testo semplice).
+      var dati = JSON.stringify({
+        first_url: location.href, first_referrer: document.referrer || "",
+        current_url: location.href, current_referrer: document.referrer || "",
+        referral_code: "", source: "embed", referring_pub_id: "", additional_referring_pub_ids: "",
+        email: email
+      });
+      fetch(base + "/api/v1/free", {
         method: "POST",
         mode: "no-cors",
         credentials: "omit",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
         body: dati
       }).then(function () {
         mostraEsito(true);
