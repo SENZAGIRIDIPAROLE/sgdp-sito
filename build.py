@@ -13,6 +13,7 @@ from datetime import date
 # ---------------- Impostazioni da completare ----------------
 SITE_URL = ""            # es. "https://sgdp.it" (serve per le anteprime dei link sui social)
 EMAIL = "redazione.sgdp@gmail.com"  # email della redazione
+SUBSTACK_URL = "https://senzagiridiparolesgdp.substack.com"  # pubblicazione Substack (anche in sito.js)
 TITOLARE = "Ionut Gaucan"
 VERSIONE_PRIVACY = "1.0 – 11 novembre 2026"
 # ------------------------------------------------------------
@@ -121,7 +122,7 @@ def piede(r, anteprima_index=False):
 
 
 def modulo(p, r, cta="Iscriviti gratis"):
-    return f'''<form class="modulo" novalidate aria-label="Iscrizione alla newsletter">
+    return f'''<form class="modulo" action="{SUBSTACK_URL}/subscribe" method="get" target="_blank" novalidate aria-label="Iscrizione alla newsletter">
   <div class="riga-campo">
     <label class="etichetta-campo" for="{p}-email">La tua email</label>
     <input type="email" id="{p}-email" name="email" autocomplete="email" placeholder="La tua email" required>
@@ -131,9 +132,8 @@ def modulo(p, r, cta="Iscriviti gratis"):
   <label class="consenso" for="{p}-c2"><input type="checkbox" id="{p}-c2" required data-nome="la conferma di aver letto l'informativa e di avere almeno 14 anni"><span>Ho letto l'<a href="{r}privacy.html">informativa privacy</a> e ho almeno 14 anni.</span></label>
   <p class="errore" role="alert" hidden></p>
   <div class="passo2" hidden>
-    <strong>Ultimo passo: conferma l'iscrizione su Substack.</strong>
-    <span>Si apre la pagina di iscrizione di Substack, la piattaforma che invia la nostra newsletter. Se l'email non è già compilata, inserisci la stessa. Poi conferma dal link che ricevi.</span>
-    <a class="bottone vai-substack" href="#" target="_blank" rel="noopener" hidden>Conferma su Substack</a>
+    <strong>Quasi fatto: completa l'iscrizione su Substack.</strong>
+    <span class="istruzioni">Si è aperta una nuova scheda di Substack, la piattaforma che invia la nostra newsletter. Clicca <b>Iscriviti</b> e poi conferma dal link che ricevi via email. Non serve creare un account.</span>
     <span class="avviso-config" hidden>Modalità di prova: il sito non è ancora collegato a Substack, quindi questa iscrizione non è stata registrata.</span>
   </div>
   <p class="nota">Raccogliamo solo la tua email, gestita da Substack per l'invio. Niente spam e nessuna cessione a terzi. <a href="{r}privacy.html">Leggi l'informativa</a>.</p>

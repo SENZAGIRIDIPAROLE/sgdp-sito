@@ -25,51 +25,45 @@ var SGDP_CONFIG = {
     if (muro) muro.hidden = true;
   }
 
-  function indirizzoSubstack(email) {
-    var base = (SGDP_CONFIG.SUBSTACK_URL || "").replace(/\/+$/, "");
-    if (!base) return "";
-    return base + "/subscribe?email=" + encodeURIComponent(email);
-  }
-
   var formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+  // Un solo clic: se i dati sono completi, il modulo apre in una nuova scheda
+  // la pagina di iscrizione di Substack con l'email già inserita.
   document.querySelectorAll("form.modulo:not(.modulo-gia)").forEach(function (form) {
     var errore = form.querySelector(".errore");
     var passo2 = form.querySelector(".passo2");
-    var vai = form.querySelector(".vai-substack");
+    var istruzioni = form.querySelector(".istruzioni");
     var avvisoConfig = form.querySelector(".avviso-config");
+    var base = (SGDP_CONFIG.SUBSTACK_URL || "").replace(/\/+$/, "");
 
     form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
       var email = (form.querySelector("input[type=email]").value || "").trim();
       var consensi = form.querySelectorAll("input[type=checkbox][required]");
       var mancano = [];
       if (!formatoEmail.test(email)) mancano.push("un indirizzo email valido");
       consensi.forEach(function (c) { if (!c.checked) mancano.push(c.getAttribute("data-nome")); });
       if (mancano.length) {
+        ev.preventDefault();
         errore.textContent = "Per iscriverti manca: " + mancano.join(", ") + ".";
         errore.hidden = false;
         return;
       }
       errore.hidden = true;
-      var url = indirizzoSubstack(email);
-      if (url) {
-        vai.href = url;
-        vai.hidden = false;
+      if (base) {
+        form.action = base + "/subscribe"; // l'invio apre Substack in una nuova scheda
+        if (istruzioni) istruzioni.hidden = false;
         if (avvisoConfig) avvisoConfig.hidden = true;
       } else {
-        vai.hidden = true;
+        ev.preventDefault();
+        if (istruzioni) istruzioni.hidden = true;
         if (avvisoConfig) avvisoConfig.hidden = false;
       }
       passo2.hidden = false;
       form.querySelector(".riga-campo").hidden = true;
       form.querySelectorAll(".consenso").forEach(function (c) { c.hidden = true; });
-      if (!url) { salva(); sblocca(); }
+      salva();
+      sblocca();
     });
-
-    if (vai) {
-      vai.addEventListener("click", function () { salva(); sblocca(); });
-    }
   });
 
   var gia = document.querySelector(".gia button");
