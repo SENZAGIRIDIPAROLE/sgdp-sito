@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Cookie e memoria locale · SGDP</title>
-<meta name="description" content="Quali strumenti tecnici usa il sito di SGDP.">
+<meta name="description" content="Quali cookie e strumenti tecnici usa il sito di SGDP.">
 <meta property="og:title" content="Cookie e memoria locale · SGDP">
-<meta property="og:description" content="Quali strumenti tecnici usa il sito di SGDP.">
+<meta property="og:description" content="Quali cookie e strumenti tecnici usa il sito di SGDP.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SGDP – Senza giri di parole">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=1794403578">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto</a>
@@ -28,15 +28,19 @@
 <main id="contenuto"><div class="gutter"><div class="pagina">
 <h1>Cookie e memoria locale</h1>
 <p class="aggiornato">Versione 1.0 – 11 novembre 2026</p>
-<p class="attacco">Il sito di SGDP non usa cookie di profilazione, né strumenti di statistica, né pubblicità.</p>
+<p class="attacco">Il sito di SGDP non usa cookie di profilazione né pubblicità. L'unico contenuto esterno è il modulo di iscrizione di Substack, che si carica solo se lo accetti.</p>
 <h2>Cosa usiamo</h2>
 <div class="tabella"><table>
   <thead><tr><th scope="col">Nome</th><th scope="col">Tipo</th><th scope="col">A cosa serve</th><th scope="col">Durata</th></tr></thead>
-  <tbody><tr><td>sgdp_iscritto</td><td>Memoria locale del browser (tecnica)</td><td>Ricorda che hai sbloccato gli articoli, così non devi farlo a ogni visita. Non contiene dati personali.</td><td>Finché non la cancelli dal browser</td></tr></tbody>
+  <tbody><tr><td>sgdp_iscritto</td><td>Memoria locale del browser (tecnica)</td><td>Ricorda che hai sbloccato gli articoli. Non contiene dati personali.</td><td>Finché non la cancelli dal browser</td></tr>
+  <tr><td>sgdp_consenso_substack</td><td>Memoria locale del browser (tecnica)</td><td>Ricorda che hai accettato il modulo di Substack.</td><td>Finché non revochi il consenso</td></tr>
+  <tr><td>ajs_anonymous_id e altri cookie di Substack</td><td>Cookie di terza parte (statistica), di Substack Inc.</td><td>Statistiche di Substack sull'uso del modulo di iscrizione. Si attivano solo dopo il tuo consenso.</td><td>Secondo la policy di Substack</td></tr></tbody>
 </table></div>
-<p>Si tratta di uno strumento tecnico, necessario al servizio che hai richiesto. Secondo le Linee guida del Garante per la protezione dei dati personali del 10 giugno 2021, per gli strumenti tecnici non è richiesto il consenso, quindi il sito non mostra un banner.</p>
+<p>Gli strumenti tecnici non richiedono consenso, secondo le Linee guida del Garante per la protezione dei dati personali del 10 giugno 2021. I cookie di Substack invece sì: per questo il modulo di iscrizione si carica solo dopo che hai cliccato <strong>Accetta e iscriviti</strong>.</p>
+<p><button class="bottone secondario" type="button" data-revoca>Revoca il consenso a Substack</button></p>
+<p class="meta" id="esito-revoca" aria-live="polite"></p>
 <h2>Contenuti di terze parti</h2>
-<p>Il sito non incorpora contenuti di terze parti: i caratteri sono ospitati sul nostro server e non ci sono video, mappe o pulsanti social integrati. I link verso Substack e i social portano su siti esterni, che hanno le proprie regole sui cookie.</p>
+<p>Oltre al modulo di Substack, il sito non incorpora contenuti di terze parti: i caratteri sono ospitati sul nostro server e non ci sono video, mappe o pulsanti social integrati. I link ai social portano su siti esterni, che hanno le proprie regole sui cookie (<a href="https://substack.com/privacy" target="_blank" rel="noopener">privacy di Substack</a>).</p>
 <h2>Come cancellarla</h2>
 <p>Puoi cancellare la memoria locale dalle impostazioni del browser, alla voce che riguarda i dati dei siti. Gli articoli torneranno bloccati fino al prossimo sblocco.</p>
 <h2>Modifiche</h2>
@@ -57,6 +61,6 @@
     <span>Testi redatti con AI e verificati dalla redazione</span>
   </div></div>
 </footer>
-<script src="sito.js?v=4"></script>
+<script src="sito.js?v=1794403578"></script>
 </body>
 </html>
