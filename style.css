@@ -2,9 +2,9 @@
    Concetto: "agenzia in bianco e nero". Testata nera con il giallo SGDP,
    pagina chiara per leggere, colori di categoria come sulle copertine. */
 
-@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/inter-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/inter-latin-600-normal.woff2") format("woff2"); }
-@font-face { font-family: "Inter"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/inter-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 800; font-style: normal; font-display: swap; src: url("inter-latin-800-normal.woff2") format("woff2"); }
 
 :root {
   /* Marca */
@@ -179,7 +179,7 @@ img { max-width: 100%; }
 
 /* ---------- Piede ---------- */
 .piede { background: var(--testata); color: var(--testata-testo); margin-top: 0; }
-.piede-interno { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 28px; padding-block: 40px 28px; }
+.piede-interno { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr)); gap: 28px; padding-block: 40px 28px; }
 .piede .marchio b { font-size: 1.6rem; }
 .piede p { color: var(--testata-muto); font-size: var(--t-s); margin-top: 10px; max-width: 34ch; }
 .piede h2 { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--testata-muto); margin-bottom: 10px; }
@@ -191,6 +191,7 @@ img { max-width: 100%; }
 @media (max-width: 860px) {
   .apertura, .banda-interno { grid-template-columns: minmax(0, 1fr); }
   .piede-interno { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .piede-interno > div:last-child { grid-column: auto; }
   .piede-interno > div:first-child { grid-column: 1 / -1; }
 }
 @media (max-width: 560px) {

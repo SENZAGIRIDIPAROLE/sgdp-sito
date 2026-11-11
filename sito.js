@@ -1,7 +1,7 @@
 /* SGDP – script del sito
    Unica cosa da configurare: l'indirizzo della pubblicazione Substack. */
 var SGDP_CONFIG = {
-  SUBSTACK_URL: "" // esempio: "https://sgdp.substack.com" (senza barra finale)
+  SUBSTACK_URL: "https://senzagiridiparolesgdp.substack.com" // indirizzo della pubblicazione Substack (senza barra finale)
 };
 
 (function () {
