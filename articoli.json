@@ -1,0 +1,127 @@
+[
+  {
+    "slug": "inflazione-stima-preliminare-e-dato-definitivo",
+    "categoria": "economia",
+    "data": "2026-11-11",
+    "edizione": "mattino",
+    "esempio": true,
+    "titolo": "Inflazione: la differenza tra stima preliminare e dato definitivo",
+    "sommario": "L'Istat diffonde prima una stima dei prezzi del mese appena concluso, poi il dato definitivo. I due numeri possono differire di poco: quello che conta è il secondo.",
+    "corpo": [
+      "L'inflazione misura di quanto aumentano in media i prezzi dei beni e dei servizi acquistati dalle famiglie. In Italia la calcola l'Istat, l'Istituto nazionale di statistica.",
+      "Alla fine di ogni mese, o nei primi giorni del mese successivo, l'Istat pubblica una stima preliminare dell'inflazione del mese appena concluso. Circa due settimane dopo arriva il dato definitivo, basato su informazioni più complete.",
+      "Gli indici principali sono due. Il NIC riguarda l'intera collettività nazionale. L'IPCA è l'indice armonizzato, calcolato con lo stesso metodo in tutti i Paesi dell'Unione europea: è quello che guarda la Banca centrale europea quando decide sui tassi.",
+      "Anche a livello di area euro il percorso è simile: Eurostat pubblica una stima flash all'inizio del mese e il dato definitivo qualche settimana dopo.",
+      "Cosa guardare: quando un titolo annuncia l'inflazione del mese, conviene controllare se si tratta della stima preliminare o del dato definitivo, e quale indice viene citato."
+    ],
+    "fonti": [
+      ["Istat – Prezzi al consumo", "https://www.istat.it"],
+      ["Eurostat – Inflazione nell'area euro", "https://ec.europa.eu/eurostat"],
+      ["Banca centrale europea", "https://www.ecb.europa.eu"]
+    ]
+  },
+  {
+    "slug": "decreto-legge-60-giorni",
+    "categoria": "italia",
+    "data": "2026-11-11",
+    "edizione": "mattino",
+    "esempio": true,
+    "titolo": "Decreto-legge: perché ha 60 giorni per diventare legge",
+    "sommario": "Il governo può adottare norme urgenti che valgono subito, ma il Parlamento deve convertirle in legge entro 60 giorni. Altrimenti decadono fin dall'inizio.",
+    "corpo": [
+      "Il decreto-legge è previsto dall'articolo 77 della Costituzione. Il governo può adottarlo solo in casi straordinari di necessità e urgenza, e il decreto entra in vigore con la pubblicazione nella Gazzetta Ufficiale.",
+      "Lo stesso giorno il decreto viene presentato alle Camere per la conversione in legge. Il Parlamento ha 60 giorni dalla pubblicazione per approvarlo, anche con modifiche.",
+      "Se la conversione non arriva in tempo, il decreto perde efficacia fin dall'inizio, come se non fosse mai esistito. Le Camere possono però regolare con una legge i rapporti giuridici nati nel frattempo.",
+      "Perché conta: molte misure su bollette, tasse o bonus arrivano con un decreto-legge. Il testo approvato dal Consiglio dei ministri può cambiare durante la conversione, quindi la versione definitiva è quella della legge di conversione.",
+      "Cosa guardare: nelle notizie su un decreto conviene controllare la data di pubblicazione in Gazzetta Ufficiale, da cui partono i 60 giorni, e il calendario dei lavori di Camera e Senato."
+    ],
+    "fonti": [
+      ["Senato della Repubblica – Costituzione, art. 77", "https://www.senato.it"],
+      ["Gazzetta Ufficiale della Repubblica italiana", "https://www.gazzettaufficiale.it"],
+      ["Camera dei deputati", "https://www.camera.it"]
+    ]
+  },
+  {
+    "slug": "come-nasce-una-legge-europea",
+    "categoria": "europa",
+    "data": "2026-11-10",
+    "edizione": "sera",
+    "esempio": true,
+    "titolo": "Come nasce una legge europea, in tre passaggi",
+    "sommario": "La Commissione propone, Parlamento e Consiglio decidono insieme. È la procedura legislativa ordinaria, usata per la maggior parte delle norme dell'Unione.",
+    "corpo": [
+      "Nella procedura legislativa ordinaria la Commissione europea ha di norma l'iniziativa: scrive la proposta di regolamento o di direttiva e la presenta agli altri due organi.",
+      "Il Parlamento europeo, eletto dai cittadini, e il Consiglio dell'Unione europea, dove siedono i ministri dei governi nazionali, esaminano il testo e possono modificarlo. La norma passa solo se entrambi approvano lo stesso testo.",
+      "Spesso l'accordo si trova nei triloghi, negoziati informali tra rappresentanti di Parlamento, Consiglio e Commissione. Il testo concordato torna poi in Parlamento e in Consiglio per il voto formale.",
+      "I due strumenti principali funzionano in modo diverso. Il regolamento si applica direttamente in tutti gli Stati membri. La direttiva fissa un obiettivo che ogni Paese deve raggiungere con una propria legge di recepimento, entro una scadenza.",
+      "Cosa guardare: quando una notizia parla di accordo a Bruxelles, conviene capire a che punto della procedura siamo. Un accordo provvisorio nei triloghi non è ancora una norma in vigore."
+    ],
+    "fonti": [
+      ["Parlamento europeo – Procedure legislative", "https://www.europarl.europa.eu"],
+      ["Consiglio dell'Unione europea", "https://www.consilium.europa.eu"],
+      ["EUR-Lex – Diritto dell'Unione europea", "https://eur-lex.europa.eu"]
+    ]
+  },
+  {
+    "slug": "consiglio-di-sicurezza-onu-veto",
+    "categoria": "mondo",
+    "data": "2026-11-10",
+    "edizione": "sera",
+    "esempio": true,
+    "titolo": "Consiglio di sicurezza dell'ONU: chi decide e come funziona il veto",
+    "sommario": "È l'organo delle Nazioni Unite responsabile della pace e della sicurezza internazionale. Ha 15 membri, e cinque di loro possono bloccare qualsiasi decisione.",
+    "corpo": [
+      "Il Consiglio di sicurezza ha 15 membri. Cinque sono permanenti: Cina, Francia, Regno Unito, Russia e Stati Uniti. Gli altri dieci sono eletti dall'Assemblea generale per due anni.",
+      "Per approvare una risoluzione su questioni sostanziali servono almeno nove voti favorevoli e nessun voto contrario dei membri permanenti. Il voto contrario di uno solo dei cinque è il cosiddetto veto e blocca la decisione. L'astensione non conta come veto.",
+      "Le decisioni del Consiglio possono essere vincolanti per gli Stati membri dell'ONU. Possono prevedere, ad esempio, sanzioni o l'autorizzazione di missioni di pace.",
+      "Perché conta: quando su una crisi internazionale il Consiglio non riesce a decidere, spesso è perché un membro permanente ha usato o minacciato il veto. In quei casi la discussione può passare all'Assemblea generale, le cui risoluzioni però non sono vincolanti.",
+      "Cosa guardare: nelle notizie sui voti all'ONU conviene distinguere tra Consiglio di sicurezza e Assemblea generale, e tra voto contrario e astensione."
+    ],
+    "fonti": [
+      ["Nazioni Unite – Consiglio di sicurezza", "https://www.un.org/securitycouncil"],
+      ["Carta delle Nazioni Unite", "https://www.un.org/en/about-us/un-charter"],
+      ["Nazioni Unite – Comunicati stampa", "https://press.un.org"]
+    ]
+  },
+  {
+    "slug": "spread-cos-e-e-perche-conta",
+    "categoria": "economia",
+    "data": "2026-11-09",
+    "edizione": "mattino",
+    "esempio": true,
+    "titolo": "Spread: che cos'è e perché conta per i conti dell'Italia",
+    "sommario": "È la differenza tra quanto pagano Italia e Germania per farsi prestare denaro a dieci anni. Quando sale, il debito pubblico costa di più.",
+    "corpo": [
+      "Lo spread è la differenza tra il rendimento dei titoli di Stato italiani a dieci anni, i BTP, e quello dei titoli tedeschi della stessa durata, i Bund. Si misura in punti base: 100 punti base equivalgono a un punto percentuale.",
+      "Il Bund è usato come riferimento perché la Germania è considerata uno dei debitori più affidabili dell'area euro. Più lo spread è alto, più gli investitori chiedono un compenso extra per prestare denaro all'Italia invece che alla Germania.",
+      "Perché conta: il debito pubblico italiano viene rinnovato di continuo con nuove emissioni di titoli. Se i rendimenti salgono, le nuove emissioni costano di più e aumenta la spesa per interessi, che pesa sul bilancio dello Stato.",
+      "Lo spread riguarda anche famiglie e imprese. I rendimenti dei titoli di Stato fanno da riferimento per il costo di altri prestiti, quindi un rialzo prolungato può contribuire a rendere più cari mutui e finanziamenti.",
+      "Cosa guardare: lo spread si aggiorna ogni giorno di mercato. Più del valore di un singolo giorno conta la tendenza nelle settimane, insieme alle decisioni della Banca centrale europea sui tassi."
+    ],
+    "fonti": [
+      ["Banca d'Italia", "https://www.bancaditalia.it"],
+      ["Ministero dell'Economia – Dipartimento del Tesoro", "https://www.dt.mef.gov.it"],
+      ["Banca centrale europea", "https://www.ecb.europa.eu"]
+    ]
+  },
+  {
+    "slug": "modello-linguistico-spiegato",
+    "categoria": "tech-scienza",
+    "data": "2026-11-09",
+    "edizione": "mattino",
+    "esempio": true,
+    "titolo": "Cos'è un modello linguistico, senza giri di parole",
+    "sommario": "È un programma addestrato su grandi quantità di testo per generare risposte parola dopo parola. Scrive bene, ma può sbagliare i fatti: per questo serve sempre una verifica.",
+    "corpo": [
+      "Un modello linguistico è un sistema di intelligenza artificiale addestrato su enormi raccolte di testi. Durante l'addestramento impara le relazioni tra le parole e, quando riceve una domanda, genera la risposta un pezzo alla volta, scegliendo il seguito più probabile.",
+      "Gli assistenti di intelligenza artificiale più diffusi sono basati su modelli di questo tipo. Possono riassumere documenti, tradurre, scrivere e rispondere a domande, e alcuni possono anche cercare informazioni sul web.",
+      "Il limite principale: un modello può produrre frasi convincenti ma sbagliate, per esempio un numero o una data inesatti. Non controlla una fonte come farebbe una persona.",
+      "Perché conta per SGDP: i nostri testi sono redatti con l'aiuto dell'AI, ma ogni fatto deve essere confermato da almeno due fonti indipendenti o da una fonte ufficiale, e una persona li approva prima della pubblicazione.",
+      "In Europa l'uso dell'intelligenza artificiale è regolato dal Regolamento (UE) 2024/1689, noto come AI Act, che prevede anche obblighi di trasparenza per alcuni contenuti generati con l'AI."
+    ],
+    "fonti": [
+      ["EUR-Lex – Regolamento (UE) 2024/1689 (AI Act)", "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"],
+      ["Commissione europea – Strategia digitale", "https://digital-strategy.ec.europa.eu"]
+    ]
+  }
+]
