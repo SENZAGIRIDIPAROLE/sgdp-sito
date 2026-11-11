@@ -27,42 +27,56 @@ var SGDP_CONFIG = {
 
   var formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  // Un solo clic: se i dati sono completi, il modulo apre in una nuova scheda
-  // la pagina di iscrizione di Substack con l'email già inserita.
+  // Un solo clic, senza uscire dal sito: l'email viene inviata a Substack in sottofondo.
+  // Se lo script non funziona, il modulo apre la pagina di iscrizione di Substack (riserva).
   document.querySelectorAll("form.modulo:not(.modulo-gia)").forEach(function (form) {
     var errore = form.querySelector(".errore");
     var passo2 = form.querySelector(".passo2");
     var istruzioni = form.querySelector(".istruzioni");
     var avvisoConfig = form.querySelector(".avviso-config");
+    var bottone = form.querySelector("button[type=submit]");
+    var testoBottone = bottone.textContent;
     var base = (SGDP_CONFIG.SUBSTACK_URL || "").replace(/\/+$/, "");
 
+    function mostraEsito(configurato) {
+      if (istruzioni) istruzioni.hidden = !configurato;
+      if (avvisoConfig) avvisoConfig.hidden = configurato;
+      passo2.hidden = false;
+      form.querySelector(".riga-campo").hidden = true;
+      salva();
+      sblocca();
+      var ea = document.querySelector(".esito-articolo");
+      if (ea && configurato) ea.hidden = false;
+    }
+
     form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
       var email = (form.querySelector("input[type=email]").value || "").trim();
-      var consensi = form.querySelectorAll("input[type=checkbox][required]");
-      var mancano = [];
-      if (!formatoEmail.test(email)) mancano.push("un indirizzo email valido");
-      consensi.forEach(function (c) { if (!c.checked) mancano.push(c.getAttribute("data-nome")); });
-      if (mancano.length) {
-        ev.preventDefault();
-        errore.textContent = "Per iscriverti manca: " + mancano.join(", ") + ".";
+      if (!formatoEmail.test(email)) {
+        errore.textContent = "Scrivi un indirizzo email valido, per esempio nome@esempio.it.";
         errore.hidden = false;
         return;
       }
       errore.hidden = true;
-      if (base) {
-        form.action = base + "/subscribe"; // l'invio apre Substack in una nuova scheda
-        if (istruzioni) istruzioni.hidden = false;
-        if (avvisoConfig) avvisoConfig.hidden = true;
-      } else {
-        ev.preventDefault();
-        if (istruzioni) istruzioni.hidden = true;
-        if (avvisoConfig) avvisoConfig.hidden = false;
-      }
-      passo2.hidden = false;
-      form.querySelector(".riga-campo").hidden = true;
-      form.querySelectorAll(".consenso").forEach(function (c) { c.hidden = true; });
-      salva();
-      sblocca();
+      if (!base) { mostraEsito(false); return; }
+      bottone.disabled = true;
+      bottone.textContent = "Invio…";
+      var dati = "email=" + encodeURIComponent(email) + "&source=embed&first_url=" + encodeURIComponent(location.href);
+      fetch(base + "/api/v1/free?nojs=true", {
+        method: "POST",
+        mode: "no-cors",
+        credentials: "omit",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: dati
+      }).then(function () {
+        mostraEsito(true);
+      }).catch(function () {
+        // Rete o blocco: si ripiega sulla pagina di iscrizione di Substack.
+        bottone.disabled = false;
+        bottone.textContent = testoBottone;
+        errore.innerHTML = "Non siamo riusciti a completare l'iscrizione da qui. <a href=\"" + base + "/subscribe?email=" + encodeURIComponent(email) + "\" target=\"_blank\" rel=\"noopener\">Iscriviti su Substack</a>.";
+        errore.hidden = false;
+      });
     });
   });
 
