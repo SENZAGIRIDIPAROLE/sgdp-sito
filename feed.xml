@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>SGDP – Senza giri di parole</title>
+  <link>https://www.senzagiridiparola.com/</link>
+  <description>Le notizie che contano per chi vive in Italia, senza giri di parole.</description>
+  <language>it-it</language>
+  <item>
+    <title>Inflazione: la differenza tra stima preliminare e dato definitivo</title>
+    <link>https://www.senzagiridiparola.com/inflazione-stima-preliminare-e-dato-definitivo.html</link>
+    <guid>https://www.senzagiridiparola.com/inflazione-stima-preliminare-e-dato-definitivo.html</guid>
+    <pubDate>Wed, 11 Nov 2026 07:00:00 +0100</pubDate>
+    <category>Economia</category>
+    <description>L&#x27;Istat diffonde prima una stima dei prezzi del mese appena concluso, poi il dato definitivo. I due numeri possono differire di poco: quello che conta è il secondo.</description>
+  </item>
+  <item>
+    <title>Decreto-legge: perché ha 60 giorni per diventare legge</title>
+    <link>https://www.senzagiridiparola.com/decreto-legge-60-giorni.html</link>
+    <guid>https://www.senzagiridiparola.com/decreto-legge-60-giorni.html</guid>
+    <pubDate>Wed, 11 Nov 2026 07:00:00 +0100</pubDate>
+    <category>Italia</category>
+    <description>Il governo può adottare norme urgenti che valgono subito, ma il Parlamento deve convertirle in legge entro 60 giorni. Altrimenti decadono fin dall&#x27;inizio.</description>
+  </item>
+  <item>
+    <title>Come nasce una legge europea, in tre passaggi</title>
+    <link>https://www.senzagiridiparola.com/come-nasce-una-legge-europea.html</link>
+    <guid>https://www.senzagiridiparola.com/come-nasce-una-legge-europea.html</guid>
+    <pubDate>Tue, 10 Nov 2026 18:00:00 +0100</pubDate>
+    <category>Europa</category>
+    <description>La Commissione propone, Parlamento e Consiglio decidono insieme. È la procedura legislativa ordinaria, usata per la maggior parte delle norme dell&#x27;Unione.</description>
+  </item>
+  <item>
+    <title>Consiglio di sicurezza dell&#x27;ONU: chi decide e come funziona il veto</title>
+    <link>https://www.senzagiridiparola.com/consiglio-di-sicurezza-onu-veto.html</link>
+    <guid>https://www.senzagiridiparola.com/consiglio-di-sicurezza-onu-veto.html</guid>
+    <pubDate>Tue, 10 Nov 2026 18:00:00 +0100</pubDate>
+    <category>Mondo</category>
+    <description>È l&#x27;organo delle Nazioni Unite responsabile della pace e della sicurezza internazionale. Ha 15 membri, e cinque di loro possono bloccare qualsiasi decisione.</description>
+  </item>
+  <item>
+    <title>Spread: che cos&#x27;è e perché conta per i conti dell&#x27;Italia</title>
+    <link>https://www.senzagiridiparola.com/spread-cos-e-e-perche-conta.html</link>
+    <guid>https://www.senzagiridiparola.com/spread-cos-e-e-perche-conta.html</guid>
+    <pubDate>Mon, 09 Nov 2026 07:00:00 +0100</pubDate>
+    <category>Economia</category>
+    <description>È la differenza tra quanto pagano Italia e Germania per farsi prestare denaro a dieci anni. Quando sale, il debito pubblico costa di più.</description>
+  </item>
+  <item>
+    <title>Cos&#x27;è un modello linguistico, senza giri di parole</title>
+    <link>https://www.senzagiridiparola.com/modello-linguistico-spiegato.html</link>
+    <guid>https://www.senzagiridiparola.com/modello-linguistico-spiegato.html</guid>
+    <pubDate>Mon, 09 Nov 2026 07:00:00 +0100</pubDate>
+    <category>Tech e scienza</category>
+    <description>È un programma addestrato su grandi quantità di testo per generare risposte parola dopo parola. Scrive bene, ma può sbagliare i fatti: per questo serve sempre una verifica.</description>
+  </item>
+</channel>
+</rss>
