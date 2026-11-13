@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.senzagiridiparola.com/sitemap.xml
+Sitemap: https://www.senzagiridiparole.com/sitemap.xml
